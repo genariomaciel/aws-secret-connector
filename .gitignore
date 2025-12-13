@@ -1,0 +1,17 @@
+**/target/
+**/.classpath
+**/.project
+**/.settings/
+**/bin/
+**/.idea/
+**/*.iml
+**/out/
+**/.DS_Store
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+.env
+.vscode/

@@ -1,0 +1,22 @@
+services:
+  localstack:
+    container_name: ls-secret
+    image: localstack/localstack
+    restart: always
+    ports:
+      - "127.0.0.1:4566:4566"            # LocalStack Gateway
+      - "127.0.0.1:4510-4559:4510-4559"  # external services port range
+    environment:
+      - DEBUG=${DEBUG-}
+      - LAMBDA_EXECUTOR=${LAMBDA_EXECUTOR-} # local, docker, docker-reuse
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - LOCALSTACK_API_KEY=${LOCALSTACK_API_KEY-}
+    volumes:
+      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      - secret-network
+
+networks:
+  secret-network:
+    driver: bridge

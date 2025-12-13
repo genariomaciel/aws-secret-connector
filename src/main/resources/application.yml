@@ -1,0 +1,15 @@
+# Arquivo de Configuração exemplo para AWS
+
+# Região padrão (pode ser alterada)
+aws:
+  region: us-east-1
+
+# Logging
+logging:
+  level:
+    com:
+      leicam:
+        secret: INFO
+    software:
+      amazon:
+        awssdk: WARN
